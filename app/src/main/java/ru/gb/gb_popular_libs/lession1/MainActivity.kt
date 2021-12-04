@@ -18,7 +18,12 @@ class MainActivity : AppCompatActivity(activity_main), MainView {
         super.onCreate(savedInstanceState)
 
         val listener = View.OnClickListener {
-            presenter.counterClick(it.id)
+            when (it.id) {
+                R.id.btn_counter1 ->presenter.counterClick(COUNTER1)
+                R.id.btn_counter2 ->presenter.counterClick(COUNTER2)
+                R.id.btn_counter3 ->presenter.counterClick(COUNTER3)
+            }
+
         }
 
         btn_counter1.setOnClickListener(listener)
@@ -29,9 +34,9 @@ class MainActivity : AppCompatActivity(activity_main), MainView {
     //Подсказка к ПЗ: поделить на 3 отдельные функции и избавиться от index
     override fun setButtonText(index: Int, text: String) {
         when(index){
-            0 -> btn_counter1.text = text
-            1 -> btn_counter2.text = text
-            2 -> btn_counter3.text = text
+            COUNTER1 -> btn_counter1.text = text
+            COUNTER2 -> btn_counter2.text = text
+            COUNTER3 -> btn_counter3.text = text
         }
     }
 

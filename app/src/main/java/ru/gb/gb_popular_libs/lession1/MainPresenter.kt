@@ -1,5 +1,9 @@
 package ru.gb.gb_popular_libs.lession1
 
+val COUNTER1=0
+val COUNTER2=1
+val COUNTER3=2
+
 class MainPresenter(
     private val view: MainView,
     private val model: CountersModel = CountersModel()
@@ -7,19 +11,7 @@ class MainPresenter(
 
     //Архитектурная ошибка. В качестве практического задания - исправить
     fun counterClick(id: Int){
-        when(id) {
-            R.id.btn_counter1 -> {
-                val nextValue = model.next(0)
-                view.setButtonText(0, nextValue.toString())
-            }
-            R.id.btn_counter2 -> {
-                val nextValue = model.next(1)
-                view.setButtonText(1, nextValue.toString())
-            }
-            R.id.btn_counter3 -> {
-                val nextValue = model.next(2)
-                view.setButtonText(2, nextValue.toString())
-            }
-        }
+            val nextValue = model.next(id)
+            view.setButtonText(id,nextValue.toString())
     }
 }
