@@ -9,7 +9,7 @@ class MainPresenter(
     private val model: CountersModel = CountersModel()
 ) {
 
-    //Архитектурная ошибка. В качестве практического задания - исправить
+    //Архитектурная ошибка. В качестве практического задания - исправить (( так и не исправил
     fun counterClick(id: Int){
             val nextValue = model.next(id)
             view.setButtonText(id,nextValue.toString())
